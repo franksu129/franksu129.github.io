@@ -1,0 +1,12 @@
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-set-card {
+  margin: 2px 0;
+}
+.word-box {
+  align-items: center;
+  height: 100px;
+}
