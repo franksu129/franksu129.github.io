@@ -31,6 +31,9 @@ body,
   display: flex;
   justify-content: space-around;
 }
+.game-control-panel > button {
+  touch-action: manipulation;
+}
 
 .footer {
   position: absolute;
