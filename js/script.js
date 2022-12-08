@@ -3,7 +3,7 @@ var app = new Vue({
   el: '#app',
   data: {
     allCards: [],
-    playMode: 0, // 0: 選擇卡牌, 1:進行遊戲 
+    playMode: 0, // 0: 選擇卡牌, 1:進行遊戲
     card_word: '準備開始',
     cardIndex: 0,
     cardBox: [],
@@ -16,13 +16,25 @@ var app = new Vue({
       });
   },
   methods: {
+    homeClick() {
+      this.playMode = 0;
+      this.card_word = '準備開始';
+    },
     nextClick() {
       if (this.cardIndex === this.cardBox.length) {
-        this.cardIndex = 0;
+        alert('已結束');
+      } else {
+        this.card_word = this.cardBox[this.cardIndex];
+        this.cardIndex++;
+      }
+    },
+    backClick() {
+      if (this.cardIndex === 0) {
+        this.cardIndex = this.cardBox.length - 1;
       }
 
       this.card_word = this.cardBox[this.cardIndex];
-      this.cardIndex++;
+      this.cardIndex--;
     },
     selectCard(index) {
       this.cardBox = this.shuffleCard(this.allCards[index]);
@@ -39,23 +51,26 @@ var app = new Vue({
   },
 });
 
+// window.onload = function () {
+//   var lastTouchEnd = 0;
+//   document.addEventListener('touchstart', function (event) {
+//     if (event.touches.length > 1) {
+//       event.preventDefault();
+//     }
+//   });
+//   document.addEventListener(
+//     'touchend',
+//     function (event) {
+//       var now = new Date().getTime();
+//       if (now - lastTouchEnd <= 300) {
+//         event.preventDefault();
+//       }
+//       lastTouchEnd = now;
+//     },
+//     false
+//   );
 
-window.onload = function() {
-  var lastTouchEnd = 0;
-  document.addEventListener('touchstart', function(event) {
-      if (event.touches.length > 1) {
-          event.preventDefault();
-      }
-  });
-  document.addEventListener('touchend', function(event) {
-      var now = (new Date()).getTime();
-      if (now - lastTouchEnd <= 300) {
-          event.preventDefault();
-      }
-      lastTouchEnd = now;
-  }, false);
-
-  document.addEventListener('gesturestart', function(event) {
-      event.preventDefault();
-  });
-}
+//   document.addEventListener('gesturestart', function (event) {
+//     event.preventDefault();
+//   });
+// };

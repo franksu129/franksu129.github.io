@@ -5,6 +5,7 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 .div-center {
   height: 100%;
@@ -27,4 +28,13 @@ body,
 
 .game-control-panel {
   margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
