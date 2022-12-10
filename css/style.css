@@ -9,6 +9,8 @@ body,
 }
 #app {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .div-center {
   height: 100%;
@@ -46,10 +48,8 @@ body,
 }
 
 .header-top {
-  position: absolute;
+
   font-size: 14px;
-  width: 22rem;
-  top: 3%;
-  left: 50%;
-  transform: translate(-50%, 0%);
+  width: 98%;
+  margin: 10px auto;
 }
