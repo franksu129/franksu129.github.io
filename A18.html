@@ -6,22 +6,26 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <meta charset="utf-8" />
-    <title>A18 Game ver 1.0.3</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>A18 Game ver 1.0.5</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+    crossorigin="anonymous"
+  />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <div id="app" class="bg-success bg-opacity-10">
       <div class="div-center">
-        <div class="card header-top">
-          <div class="card-body flex-center">規則</div>
+        <div class="card header-top" v-if="playMode === 0">
+          <div class="card-body flex-center">
+            規則說明： <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;這是一款「嘴巴」的比手畫腳遊戲，透過同義、反義、聯想和暗示，讓你的隊友猜出你所描述的題目。
+            <br />流程：
+            <br />1. 每組選擇1人描述字卡上的題目，由其他人猜題。 
+            <br />2. 於3分鐘內猜出最多題目的組獲勝！
+          </div>
         </div>
 
         <div
@@ -34,7 +38,7 @@
             class="btn-set-card btn btn-success"
             @click="selectCard(index)"
           >
-            {{item.name}}
+          {{item.name}}({{item.cards.length}})
           </button>
         </div>
 

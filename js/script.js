@@ -12,6 +12,17 @@ var app = new Vue({
     fetch('../data/wordCard.json')
       .then((response) => response.json())
       .then((json) => {
+        var myAllCard = [];
+
+        json.forEach((element) => {
+          myAllCard = myAllCard.concat(element.cards);
+        });
+
+        json.push({
+          name: '所有類別',
+          cards: myAllCard,
+        });
+
         this.allCards = json;
       });
   },
@@ -21,7 +32,7 @@ var app = new Vue({
       this.card_word = '準備開始';
     },
     nextClick() {
-      if (this.cardIndex === this.cardBox.length) {
+      if (this.cardIndex === this.cardBox.length - 1) {
         alert('已結束');
       } else {
         this.card_word = this.cardBox[this.cardIndex];

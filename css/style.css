@@ -7,6 +7,9 @@ body,
   padding: 0;
   overflow: hidden;
 }
+#app {
+  position: relative;
+}
 .div-center {
   height: 100%;
   width: 100%;
@@ -43,10 +46,10 @@ body,
 }
 
 .header-top {
-  position: absolute !important;
-  font-size: 20px;
-  width: 18rem;
-  top: 10%;
+  position: absolute;
+  font-size: 14px;
+  width: 22rem;
+  top: 3%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
 }
