@@ -37,7 +37,7 @@ var app = new Vue({
       this.cardIndex--;
     },
     selectCard(index) {
-      this.cardBox = this.shuffleCard(this.allCards[index]).cards;
+      this.cardBox = this.shuffleCard(this.allCards[index].cards);
       this.cardIndex = 0;
       this.playMode = 1;
     },
