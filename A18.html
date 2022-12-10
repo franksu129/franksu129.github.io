@@ -6,7 +6,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <meta charset="utf-8" />
-    <title>A18 Game ver 1.0.2</title>
+    <title>A18 Game ver 1.0.3</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,6 +20,10 @@
   <body>
     <div id="app" class="bg-success bg-opacity-10">
       <div class="div-center">
+        <div class="card header-top">
+          <div class="card-body flex-center">規則</div>
+        </div>
+
         <div
           class="flex-center"
           v-for="(item, index) in allCards"
@@ -30,17 +34,23 @@
             class="btn-set-card btn btn-success"
             @click="selectCard(index)"
           >
-            Select MyCard {{index}}
+            {{item.name}}
           </button>
         </div>
 
         <div v-if="playMode === 1">
           <div class="card word-box" style="width: 18rem; margin: 0 auto">
-            <div class="card-body flex-center ">{{card_word}}</div>
+            <div class="card-body flex-center">{{card_word}}</div>
           </div>
 
           <div class="flex-center game-control-panel">
-            <button class="btn btn-primary" v-if="this.cardIndex > 0" @click="backClick">Back</button>
+            <button
+              class="btn btn-primary"
+              v-if="this.cardIndex > 0"
+              @click="backClick"
+            >
+              Back
+            </button>
             <button class="btn btn-primary" @click="nextClick">Next</button>
           </div>
         </div>

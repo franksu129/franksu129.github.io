@@ -41,3 +41,12 @@ body,
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.header-top {
+  position: absolute !important;
+  font-size: 20px;
+  width: 18rem;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
