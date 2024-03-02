@@ -1,4 +1,4 @@
-var temp;
+let urlParams = new URLSearchParams(window.location.search);
 var app = new Vue({
   el: '#app',
   data: {
@@ -9,7 +9,12 @@ var app = new Vue({
     cardBox: [],
   },
   created: function () {
-    fetch('../data/wordCard.json')
+    let gameType = urlParams.get('game');
+    let allType = urlParams.get('all');
+    let wordLink =
+      gameType == 1 ? '../data/RandomWord.json' : '../data/wordCard.json';
+
+    fetch(wordLink)
       .then((response) => response.json())
       .then((json) => {
         var myAllCard = [];
@@ -18,11 +23,12 @@ var app = new Vue({
           myAllCard = myAllCard.concat(element.cards);
         });
 
-        json.push({
-          name: '所有類別',
-          cards: myAllCard,
-        });
-
+        if (allType != 0) {
+          json.push({
+            name: '所有類別',
+            cards: myAllCard,
+          });
+        }
         this.allCards = json;
       });
   },
