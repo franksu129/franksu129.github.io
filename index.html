@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <title>Document</title>
+</head>
+<!-- Vue CDN -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="./main.js" type="module"></script>
+
+
+<body>
+    <div id="app" class="wrap">
+        <!-- <div v-if="!card" class="choose">
+            <button v-on:click="getCard">點擊抽卡</button>
+        </div> -->
+        <div class="result">
+            <div class="image">
+                <div class="card-front">
+                    <img class="back" src="./image/back.jpg" v-on:click="getCard" alt="">
+                </div>
+                <div class="card-back" >
+                    <img v-bind:src="resultImage" alt="">
+                </div>
+            </div>
+            <div  class="imageButton">
+                <span v-if="isClickable">點擊上方卡片開始禱告</span>
+                <button v-else v-on:click="backToChoose">再抽一次</button>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+
+    
+</body>
+</html>

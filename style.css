@@ -1,0 +1,111 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+#app {
+    margin: 0 auto;
+    height: 100dvh;
+    aspect-ratio: 9 / 16;
+}
+
+.choose {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.result {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    margin: 0 auto;
+    display: block; 
+}
+
+.image {
+    flex: 6;
+    margin: 0 auto;
+    width: 100%;
+    aspect-ratio: 9 / 15;
+    transform-style: preserve-3d; /* 保持3D效果 */
+}
+  
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* 隱藏背面 */
+}
+  
+.card-front {
+    color: white;
+    z-index: 2; /* 正面放在上面 */
+    display: flex;
+    align-items: center;
+}
+
+img {
+    width: 100%;
+    aspect-ratio: 7.9 / 10.8;
+}
+
+.back {
+    cursor: pointer;
+}
+  
+.card-back {
+    color: white;
+    transform: rotateY(180deg); /* 初始翻轉狀態 */
+    z-index: 1; /* 背面放在下面 */
+    display: flex;
+    align-items: center;
+}
+  
+/* 定義翻牌的動畫 */
+@keyframes flipCard {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(180deg);
+    }
+}
+
+.flip {
+    animation: flipCard 1.5s forwards; /* 应用翻转动画 */
+}
+
+.imageButton {
+    display: flex;
+    /* align-items: center; */
+    flex: 1;
+}
+
+.imageButton > span {
+    font-size: 20px;
+}
+
+.imageButton > button {
+    height: 50px;
+    border-radius: 99rem;
+    border-width: 2px;
+    padding: 0.8rem 3rem;
+    background-color: #000;
+    color: #fff;
+    border: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.imageButton > button:hover {
+    color: #999;
+    border: #999;
+}
