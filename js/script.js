@@ -11,8 +11,13 @@ var app = new Vue({
   created: function () {
     let gameType = urlParams.get('game');
     let allType = urlParams.get('all');
-    let wordLink =
-      gameType == 1 ? '../data/RandomWord.json' : '../data/wordCard.json';
+    let wordLink = '../data/wordCard.json';
+      
+      if(gameType == 1)
+        wordLink = '../data/RandomWord.json';
+      else if(gameType == 2)
+        wordLink = '../data/cards.json';
+
 
     fetch(wordLink)
       .then((response) => response.json())
